@@ -107,10 +107,10 @@ public class Controlador {
                     toolchain="gligli";
                     xenon="libxenon";
                 }
-                else if (toolchain.equalsIgnoreCase("ced2911_Experimental")){
-                    toolchain="Ced2911";
-                    xenon="libxenon-experimental";
-                }
+//                else if (toolchain.equalsIgnoreCase("ced2911_Experimental")){
+//                    toolchain="Ced2911";
+//                    xenon="libxenon-experimental";
+//                }
                 else if (toolchain.equalsIgnoreCase("Free60")){
                     toolchain="Free60Project";
                     xenon="libxenon";

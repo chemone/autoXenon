@@ -37,6 +37,14 @@ export PATH="$PATH:$DEVKITXENON/bin:$DEVKITXENON/usr/bin"
 
   -Corregido bug menor en ubuntu 11.04
 
+-Cambios en la version 0.3:
+
+    -Nueva GUI
+
+    -Añadida la instalación de las siguientes librerías: freetype, zlib, bin2s, libpng, bzip2 y  libSDLXenon
+
+    -Ahora se puede seleccionar la toolchain a instalar entre la de Free60Project y la de Gligli. 
+
 -Agradecimientos:
 
 Gracias a GliGli, tmbinc (por decubrir los hacks rgh y jtag respectivamente), a todos los usuarios de libxenon.org (por todas sus inestimables aportaciones), 

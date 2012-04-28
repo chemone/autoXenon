@@ -77,7 +77,7 @@ public class Ventana extends javax.swing.JFrame {
 
         jLabel1.setText("Selecciona la toolchain a instalar:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Free60", "Gligli", "Ced2911_Experimental" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Free60", "Gligli" }));
 
         jButton1.setText("Instalar");
 
