@@ -135,14 +135,16 @@ public class Controlador {
             llamarScript();
         }
         /*
-         * Este método instala todas las librerías necesarias para libxenon excepto SDL
+         * Este método instala todas las librerías necesarias para libxenon, incluyendo SDL
          */
         public void instalarLibrerías(){
         try {
 //            terminal.waitFor();
             terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory=/opt/free60-git/toolchain -x sudo ./build-xenon-toolchain libs");
             terminal.waitFor();
-            terminal = Runtime.getRuntime().exec("");
+            terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory=/opt/free60-git -x git clone git://github.com/lantus/libSDLXenon.git");
+            terminal.waitFor();
+            terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory=/opt/free60-git/libSDLXenon -x make -f Makefile.xenon install");
         } catch (Exception ex) {
             Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
         }
