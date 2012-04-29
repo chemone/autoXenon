@@ -32,6 +32,7 @@ public class Controlador {
      * para la toolchain de libxenon
      */
         private Process terminal;
+        private String usuario;
         private void instalarPaquetes(){
         try {
             terminal = Runtime.getRuntime().exec("gnome-terminal -x sudo apt-get install libgmp3-dev libmpfr-dev libmpc-dev texinfo git-core gettext build-essential");
@@ -69,7 +70,6 @@ public class Controlador {
          * su nombre y le otorga derechos para leer y escribir en ellos.
          */
         private void crearDirectorios(){
-            String usuario;
             File opt= new File("/opt");
             File losFicheros=new File("/opt/free60-git");
             if (opt.exists()){
@@ -144,7 +144,9 @@ public class Controlador {
             terminal.waitFor();
             terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory=/opt/free60-git -x git clone git://github.com/lantus/libSDLXenon.git");
             terminal.waitFor();
-            terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory=/opt/free60-git/libSDLXenon -x sudo make -f Makefile.xenon install");
+            terminal = Runtime.getRuntime().exec("gnome-terminal -x sudo chown -R "+usuario+":"+usuario+" /usr/local/xenon");
+            terminal.waitFor();
+            terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory=/opt/free60-git/libSDLXenon -x make -f Makefile.xenon install");
         } catch (Exception ex) {
             Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
         }
