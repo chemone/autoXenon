@@ -144,7 +144,7 @@ public class Controlador {
             terminal.waitFor();
             terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory=/opt/free60-git -x git clone git://github.com/lantus/libSDLXenon.git");
             terminal.waitFor();
-            terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory=/opt/free60-git/libSDLXenon -x make -f Makefile.xenon install");
+            terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory=/opt/free60-git/libSDLXenon -x sudo make -f Makefile.xenon install");
         } catch (Exception ex) {
             Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
         }
