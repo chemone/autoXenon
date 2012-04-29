@@ -53,5 +53,5 @@ Para instalar las librerías debemos ir a la pestaña correspondiente y pulsar e
 
 -Agradecimientos:
 
-Gracias a GliGli, tmbinc (por decubrir los hacks rgh y jtag respectivamente), a todos los usuarios de libxenon.org (por todas sus inestimables aportaciones), 
+Gracias a GliGli, tmbinc (por decubrir los hacks rgh y jtag respectivamente), a todos los usuarios de libxenon.org y Free60Project (por todas sus inestimables aportaciones)
 a los usuarios de elotrolado.net (gracias por todo) y a toda la gente que hace posible que ésto siga creciendo. Un saludo. 
