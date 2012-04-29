@@ -25,17 +25,19 @@ Para poder compilar nuestros proyectos debemos de editar el fichero .bashrc, tan
 export DEVKITXENON="/usr/local/xenon"
 export PATH="$PATH:$DEVKITXENON/bin:$DEVKITXENON/usr/bin"
 
+Para instalar las librerías debemos ir a la pestaña correspondiente y pulsar en el botón de instalar, si no hemos introducido antes nuestro nombre de usuario, nos lo pedirá ahora e inmediatamente después comenzará a instalar las librerías.
+
 -Cambios en la versión 0.2:
 
-  -Corregidos problemas con permisos de las carpetas.
+    -Corregidos problemas con permisos de las carpetas.
 
-  -Añadido soporte para actualizar libxenon, descargando los últimos repositorios.
+    -Añadido soporte para actualizar libxenon, descargando los últimos repositorios.
 
-  -Añadido mensaje de fin de proceso.
+    -Añadido mensaje de fin de proceso.
 
 -Cambios en la versión 0.2_b:
 
-  -Corregido bug menor en ubuntu 11.04
+    -Corregido bug menor en ubuntu 11.04
 
 -Cambios en la version 0.3:
 
@@ -44,6 +46,10 @@ export PATH="$PATH:$DEVKITXENON/bin:$DEVKITXENON/usr/bin"
     -Añadida la instalación de las siguientes librerías: freetype, zlib, bin2s, libpng, bzip2 y  libSDLXenon
 
     -Ahora se puede seleccionar la toolchain a instalar entre la de Free60Project y la de Gligli. 
+
+-Cambios en la versión 0.3_b:
+
+    -Corregida instalación de SDL en versiones recientes de Ubuntu.
 
 -Agradecimientos:
 

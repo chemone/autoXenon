@@ -72,7 +72,7 @@ public class Ventana extends javax.swing.JFrame {
         bInstalarLibrerias = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("AutoXenon 0.3 beta");
+        setTitle("AutoXenon 0.3_b beta");
         setResizable(false);
 
         jLabel1.setText("Selecciona la toolchain a instalar:");

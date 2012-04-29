@@ -32,7 +32,7 @@ public class Controlador {
      * para la toolchain de libxenon
      */
         private Process terminal;
-        private String usuario;
+        private String usuario="";
         private void instalarPaquetes(){
         try {
             terminal = Runtime.getRuntime().exec("gnome-terminal -x sudo apt-get install libgmp3-dev libmpfr-dev libmpc-dev texinfo git-core gettext build-essential");
@@ -138,8 +138,12 @@ public class Controlador {
          * Este método instala todas las librerías necesarias para libxenon, incluyendo SDL
          */
         public void instalarLibrerías(){
-        try {
-//            terminal.waitFor();
+        if (usuario.isEmpty()){
+            do
+            usuario= JOptionPane.showInputDialog("Escribe tu nombre de usuario habitual:");
+            while (usuario.isEmpty());
+        }
+            try {
             terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory=/opt/free60-git/toolchain -x sudo ./build-xenon-toolchain libs");
             terminal.waitFor();
             terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory=/opt/free60-git -x git clone git://github.com/lantus/libSDLXenon.git");
@@ -150,6 +154,7 @@ public class Controlador {
         } catch (Exception ex) {
             Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
                 
 }
 }
