@@ -135,7 +135,7 @@ public class Controlador {
             llamarScript();
         }
         /*
-         * Este método instala todas las librerías necesarias para libxenon, incluyendo SDL
+         * Este método instala todas las librerías necesarias para libxenon.
          */
         public void instalarLibrerías(){
         if (usuario.isEmpty()){
@@ -146,15 +146,25 @@ public class Controlador {
             try {
             terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory=/opt/free60-git/toolchain -x sudo ./build-xenon-toolchain libs");
             terminal.waitFor();
-            terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory=/opt/free60-git -x git clone git://github.com/lantus/libSDLXenon.git");
-            terminal.waitFor();
-            terminal = Runtime.getRuntime().exec("gnome-terminal -x sudo chown -R "+usuario+":"+usuario+" /usr/local/xenon");
-            terminal.waitFor();
-            terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory=/opt/free60-git/libSDLXenon -x make -f Makefile.xenon install");
+            instalaSDL();
         } catch (Exception ex) {
             Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
         }
         
                 
 }
+        /*Instala SDL*/
+        public void instalaSDL(){
+        try {
+            terminal.waitFor();
+            terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory=/opt/free60-git -x git clone git://github.com/lantus/libSDLXenon.git");
+            terminal.waitFor();
+            terminal = Runtime.getRuntime().exec("gnome-terminal -x sudo chown -R "+usuario+":"+usuario+" /usr/local/xenon");
+            terminal.waitFor();
+            terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory=/opt/free60-git/libSDLXenon -x make -f Makefile.xenon install");
+            terminal.waitFor();
+        } catch (Exception ex) {
+            Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }
 }
