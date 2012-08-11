@@ -155,16 +155,27 @@ public class Controlador {
 }
         /*Instala SDL*/
         public void instalaSDL(){
-        try {
-            terminal.waitFor();
-            terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory=/opt/free60-git -x git clone git://github.com/lantus/libSDLXenon.git");
-            terminal.waitFor();
-            terminal = Runtime.getRuntime().exec("gnome-terminal -x sudo chown -R "+usuario+":"+usuario+" /usr/local/xenon");
-            terminal.waitFor();
-            terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory=/opt/free60-git/libSDLXenon -x make -f Makefile.xenon install");
-            terminal.waitFor();
-        } catch (Exception ex) {
-            Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            File dir=new File("/opt/free60-git/libSDLXenon");
+            if (dir.exists()){
+                try {
+                    terminal = Runtime.getRuntime().exec("gnome-terminal -x rm -R /opt/free60-git/libSDLXenon");
+                    terminal.waitFor();
+                } catch (Exception ex) {
+                    Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
+                try {
+                    terminal.waitFor();
+                    terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory=/opt/free60-git -x git clone git://github.com/LibXenonProject/libSDLXenon.git");
+                    terminal.waitFor();
+                    terminal = Runtime.getRuntime().exec("gnome-terminal -x sudo chown -R "+usuario+":"+usuario+" /usr/local/xenon");
+                    terminal.waitFor();
+                    terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory=/opt/free60-git/libSDLXenon -x make -f Makefile.xenon install");
+                    terminal.waitFor();
+                }
+                catch (Exception ex) {
+                    Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+                }
         }
 }
