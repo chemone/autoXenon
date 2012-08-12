@@ -36,7 +36,7 @@ public class Escuchador implements ActionListener{
             elModelo.instalarToolchain(laVentana.getElCombo().getSelectedItem().toString());
         }
         else if (Fuente==laVentana.getBInstalarLibrerias()){
-            elModelo.instalaSDL();
+            elModelo.instalarLibrerías();
         }
     }
     

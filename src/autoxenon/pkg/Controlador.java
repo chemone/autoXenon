@@ -147,6 +147,14 @@ public class Controlador {
             terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory=/opt/free60-git/toolchain -x sudo ./build-xenon-toolchain libs");
             terminal.waitFor();
             instalaSDL();
+            instalaZLX();
+            instalaFat();
+            instalaNtfs();
+            instalaXtaf();
+            this.instalaExt2();
+            this.instalaSdl_Image();
+            this.instalaSdl_Mixer();
+            this.instalaSdl_ttf();
         } catch (Exception ex) {
             Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -158,7 +166,7 @@ public class Controlador {
             File dir=new File("/opt/free60-git/libSDLXenon");
             if (dir.exists()){
                 try {
-                    terminal = Runtime.getRuntime().exec("gnome-terminal -x rm -R /opt/free60-git/libSDLXenon");
+                    terminal = Runtime.getRuntime().exec("gnome-terminal -x rm -R "+dir.getAbsolutePath());
                     terminal.waitFor();
                 } catch (Exception ex) {
                     Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
@@ -178,4 +186,199 @@ public class Controlador {
                     Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
                 }
         }
-}
+        public void instalaZLX(){
+            File dir=new File("/opt/free60-git/ZLX-Library");
+            if (dir.exists()){
+                try {
+                    terminal = Runtime.getRuntime().exec("gnome-terminal -x rm -R "+dir.getAbsolutePath());
+                    terminal.waitFor();
+                } catch (Exception ex) {
+                    Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
+                try {
+                    terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory=/opt/free60-git -x git clone git://github.com/LibXenonProject/ZLX-Library.git");
+                    terminal.waitFor();
+                    terminal = Runtime.getRuntime().exec("gnome-terminal -x sudo chown -R "+usuario+":"+usuario+" /usr/local/xenon");
+                    terminal.waitFor();
+                    terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory=/opt/free60-git/ZLX-Library -x make -f Makefile_lib install");
+                    terminal.waitFor();
+                }
+                catch (Exception ex) {
+                    Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+                }
+        }
+        public void instalaFat(){
+            File dir=new File("/opt/free60-git/fat-xenon");
+            if (dir.exists()){
+                try {
+                    terminal = Runtime.getRuntime().exec("gnome-terminal -x rm -R "+dir.getAbsolutePath());
+                    terminal.waitFor();
+                } catch (Exception ex) {
+                    Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
+                try {
+                    terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory=/opt/free60-git -x git clone git://github.com/LibXenonProject/fat-xenon.git");
+                    terminal.waitFor();
+                    terminal = Runtime.getRuntime().exec("gnome-terminal -x sudo chown -R "+usuario+":"+usuario+" /usr/local/xenon");
+                    terminal.waitFor();
+                    terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory="+dir.getAbsolutePath()+" -x make");
+                    terminal.waitFor();
+                    terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory="+dir.getAbsolutePath()+" -x make install");
+                    terminal.waitFor();
+                }
+                catch (Exception ex) {
+                    Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+                }
+        }
+         public void instalaNtfs(){
+            File dir=new File("/opt/free60-git/ntfs-xenon");
+            if (dir.exists()){
+                try {
+                    terminal = Runtime.getRuntime().exec("gnome-terminal -x rm -R "+dir.getAbsolutePath());
+                    terminal.waitFor();
+                } catch (Exception ex) {
+                    Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
+                try {
+                    terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory=/opt/free60-git -x git clone git://github.com/LibXenonProject/ntfs-xenon.git");
+                    terminal.waitFor();
+                    terminal = Runtime.getRuntime().exec("gnome-terminal -x sudo chown -R "+usuario+":"+usuario+" /usr/local/xenon");
+                    terminal.waitFor();
+                    terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory="+dir.getAbsolutePath()+" -x make");
+                    terminal.waitFor();
+                    terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory="+dir.getAbsolutePath()+" -x make install");
+                    terminal.waitFor();
+                }
+                catch (Exception ex) {
+                    Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+                }
+        }
+          public void instalaExt2(){
+            File dir=new File("/opt/free60-git/ext2fs-xenon");
+            if (dir.exists()){
+                try {
+                    terminal = Runtime.getRuntime().exec("gnome-terminal -x rm -R "+dir.getAbsolutePath());
+                    terminal.waitFor();
+                } catch (Exception ex) {
+                    Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
+                try {
+                    terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory=/opt/free60-git -x git clone git://github.com/LibXenonProject/ext2fs-xenon.git");
+                    terminal.waitFor();
+                    terminal = Runtime.getRuntime().exec("gnome-terminal -x sudo chown -R "+usuario+":"+usuario+" /usr/local/xenon");
+                    terminal.waitFor();
+                    terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory="+dir.getAbsolutePath()+" -x make");
+                    terminal.waitFor();
+                    terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory="+dir.getAbsolutePath()+" -x make install");
+                    terminal.waitFor();
+                }
+                catch (Exception ex) {
+                    Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+                }
+        }
+           public void instalaXtaf(){
+            File dir=new File("/opt/free60-git/xtaflib");
+            if (dir.exists()){
+                try {
+                    terminal = Runtime.getRuntime().exec("gnome-terminal -x rm -R "+dir.getAbsolutePath());
+                    terminal.waitFor();
+                } catch (Exception ex) {
+                    Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
+                try {
+                    terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory=/opt/free60-git -x git clone git://github.com/LibXenonProject/xtaflib.git");
+                    terminal.waitFor();
+                    terminal = Runtime.getRuntime().exec("gnome-terminal -x sudo chown -R "+usuario+":"+usuario+" /usr/local/xenon");
+                    terminal.waitFor();
+                    terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory="+dir.getAbsolutePath()+" -x make");
+                    terminal.waitFor();
+                    terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory="+dir.getAbsolutePath()+" -x make install");
+                    terminal.waitFor();
+                }
+                catch (Exception ex) {
+                    Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+                }
+        }
+            public void instalaSdl_ttf(){
+            File dir=new File("/opt/free60-git/SDL_ttf");
+            if (dir.exists()){
+                try {
+                    terminal = Runtime.getRuntime().exec("gnome-terminal -x rm -R "+dir.getAbsolutePath());
+                    terminal.waitFor();
+                } catch (Exception ex) {
+                    Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
+                try {
+                    terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory=/opt/free60-git -x git clone git://github.com/LibXenonProject/SDL_ttf.git");
+                    terminal.waitFor();
+                    terminal = Runtime.getRuntime().exec("gnome-terminal -x sudo chown -R "+usuario+":"+usuario+" /usr/local/xenon");
+                    terminal.waitFor();
+                    terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory="+dir.getAbsolutePath()+" -x make");
+                    terminal.waitFor();
+                    terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory="+dir.getAbsolutePath()+" -x make install");
+                    terminal.waitFor();
+                }
+                catch (Exception ex) {
+                    Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+                }
+        }
+        
+                  public void instalaSdl_Image(){
+            File dir=new File("/opt/free60-git/SDL_Image");
+            if (dir.exists()){
+                try {
+                    terminal = Runtime.getRuntime().exec("gnome-terminal -x rm -R "+dir.getAbsolutePath());
+                    terminal.waitFor();
+                } catch (Exception ex) {
+                    Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
+                try {
+                    terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory=/opt/free60-git -x git clone git://github.com/LibXenonProject/SDL_Image.git");
+                    terminal.waitFor();
+                    terminal = Runtime.getRuntime().exec("gnome-terminal -x sudo chown -R "+usuario+":"+usuario+" /usr/local/xenon");
+                    terminal.waitFor();
+                    terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory="+dir.getAbsolutePath()+" -x make -f Makefile.xenon install");
+                    terminal.waitFor();
+                }
+                catch (Exception ex) {
+                    Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+                }
+        }
+               public void instalaSdl_Mixer(){
+            File dir=new File("/opt/free60-git/SDL_Mixer");
+            if (dir.exists()){
+                try {
+                    terminal = Runtime.getRuntime().exec("gnome-terminal -x rm -R "+dir.getAbsolutePath());
+                    terminal.waitFor();
+                } catch (Exception ex) {
+                    Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
+                try {
+                    terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory=/opt/free60-git -x git clone git://github.com/LibXenonProject/SDL_Mixer.git");
+                    terminal.waitFor();
+                    terminal = Runtime.getRuntime().exec("gnome-terminal -x sudo chown -R "+usuario+":"+usuario+" /usr/local/xenon");
+                    terminal.waitFor();
+                    terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory="+dir.getAbsolutePath()+" -x make -f Makefile.xenon install");
+                    terminal.waitFor();
+                }
+                catch (Exception ex) {
+                    Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+                }
+        }
+}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
