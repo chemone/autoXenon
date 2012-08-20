@@ -16,8 +16,11 @@
  */
 package autoxenon.pkg;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -144,17 +147,17 @@ public class Controlador {
             while (usuario.isEmpty());
         }
             try {
-            terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory=/opt/free60-git/toolchain -x sudo ./build-xenon-toolchain libs");
-            terminal.waitFor();
-            instalaSDL();
-            instalaZLX();
+            //terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory=/opt/free60-git/toolchain -x sudo ./build-xenon-toolchain libs");
+            //terminal.waitFor();
             instalaFat();
             instalaNtfs();
+            instalaExt2();
+            instalaSDL();
+            instalaSdl_Image();
+            instalaSdl_Mixer();
+            instalaSdl_ttf();
             instalaXtaf();
-            this.instalaExt2();
-            this.instalaSdl_Image();
-            this.instalaSdl_Mixer();
-            this.instalaSdl_ttf();
+            instalaZLX();
         } catch (Exception ex) {
             Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -179,7 +182,17 @@ public class Controlador {
                     terminal.waitFor();
                     terminal = Runtime.getRuntime().exec("gnome-terminal -x sudo chown -R "+usuario+":"+usuario+" /usr/local/xenon");
                     terminal.waitFor();
+                    
                     terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory=/opt/free60-git/libSDLXenon -x make -f Makefile.xenon install");
+                    InputStream str= terminal.getErrorStream();
+                    BufferedReader br = new BufferedReader (new InputStreamReader (str)); 
+                    String error=br.readLine();
+                    
+                    while(error!=null){
+                        
+                        System.out.println(error);
+                        br.readLine();
+                    }
                     terminal.waitFor();
                 }
                 catch (Exception ex) {
