@@ -16,11 +16,7 @@
  */
 package autoxenon.pkg;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -51,7 +47,9 @@ public class Controlador {
         private void llamarScript(){
             try {
                 terminal.waitFor();
-                terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory=/opt/free60-git/toolchain -x sudo ./build-xenon-toolchain toolchain");
+                terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory=/opt/free60-git/toolchain -x sudo chmod a+x build-xenon-toolchain");
+                terminal.waitFor();
+                terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory=/opt/free60-git/toolchain -x ./build-xenon-toolchain toolchain");
                 terminal.waitFor();
                 JOptionPane.showMessageDialog(null, "¡¡¡¡Enhorabuena!!!!\nSe ha terminado de instalar libxenon.\n"
                         + "Por favor, añade las dos últimas líneas de éste mensaje al fichero .bashrc,\n"
@@ -149,14 +147,14 @@ public class Controlador {
             try {
             //terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory=/opt/free60-git/toolchain -x sudo ./build-xenon-toolchain libs");
             //terminal.waitFor();
-            instalaFat();
-            instalaNtfs();
-            instalaExt2();
+//            instalaFat();
+//            instalaNtfs();
+//            instalaExt2();
+//            instalaXtaf();
             instalaSDL();
             instalaSdl_Image();
             instalaSdl_Mixer();
             instalaSdl_ttf();
-            instalaXtaf();
             instalaZLX();
         } catch (Exception ex) {
             Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
@@ -182,17 +180,7 @@ public class Controlador {
                     terminal.waitFor();
                     terminal = Runtime.getRuntime().exec("gnome-terminal -x sudo chown -R "+usuario+":"+usuario+" /usr/local/xenon");
                     terminal.waitFor();
-                    
                     terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory=/opt/free60-git/libSDLXenon -x make -f Makefile.xenon install");
-                    InputStream str= terminal.getErrorStream();
-                    BufferedReader br = new BufferedReader (new InputStreamReader (str)); 
-                    String error=br.readLine();
-                    
-                    while(error!=null){
-                        
-                        System.out.println(error);
-                        br.readLine();
-                    }
                     terminal.waitFor();
                 }
                 catch (Exception ex) {
