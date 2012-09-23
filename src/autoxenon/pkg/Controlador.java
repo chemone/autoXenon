@@ -145,12 +145,12 @@ public class Controlador {
             while (usuario.isEmpty());
         }
             try {
-            //terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory=/opt/free60-git/toolchain -x sudo ./build-xenon-toolchain libs");
-            //terminal.waitFor();
-//            instalaFat();
-//            instalaNtfs();
-//            instalaExt2();
-//            instalaXtaf();
+            terminal = Runtime.getRuntime().exec("gnome-terminal --working-directory=/opt/free60-git/toolchain -x ./build-xenon-toolchain libs");
+            terminal.waitFor();
+            instalaFat();
+            instalaNtfs();
+            instalaExt2();
+            instalaXtaf();
             instalaSDL();
             instalaSdl_Image();
             instalaSdl_Mixer();
